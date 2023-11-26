@@ -5,9 +5,12 @@
   <header>
 	<h2><a href="{{ .Permalink }}" class="p-name">{{ .Title }}</a></h2>
   </header>
-  <section class="post-body e-content">
-	{{ .Content }}
-  </section>
+   <div class="e-content">
+    {{ .Summary }}
+    {{ if .Truncated }}
+      <p><a href="{{ .RelPermalink }}">Read More</a></p>
+    {{ end }}
+  </div>
   </section>
   {{ else }}
 	<div class="post-body e-content">{{ .Content }}</div>
